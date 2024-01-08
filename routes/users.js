@@ -1,9 +1,24 @@
-var express = require('express');
-var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const mongoose = require('mongoose')
+const plm = require("passport-local-mongoose")
 
-module.exports = router;
+mongoose.connect("mongodb+srv://admin:a123@contactdb.hza3krj.mongodb.net/pin");
+
+const userSchema = mongoose.Schema({
+  username: String,
+  name: String,
+  email: String,
+  password: String,
+  profileImage: String,
+  contact: Number,
+  boards: {
+    type: Array,
+    default: [],
+  },
+
+
+})
+
+userSchema.plugin(plm);
+
+module.exports = mongoose.model("user", userSchema)

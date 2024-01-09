@@ -19,17 +19,17 @@
             <h1 class="text-3xl font-semibold ">Demo</h1>
             <h3 class="text-md">@username</h3>
             <a href="/edit" class="px-10 py-3 bg-zinc-700 rounded-full text-xs">Edit</a>
-            <button class="bg-red-500 rounded-full px-4 py-2">Add new Post</button>
+            <a href="/add" class="bg-red-500 rounded-full px-4 py-2">Add new Post</a>
         </div>
 
 
         <div class="cards flex flex-wrap gap-5 px-10 text-white">
             <div class="card">
                 <div class="w-52 h-52 rounded-lg bg-zinc-300 overflow-hidden">
-                    <img class="w-full h-full object-cover" src="https://i.pinimg.com/564x/d5/c1/0d/d5c10dfa806343da4b8fefc83db474db.jpg" alt="">
+                    <img class="w-full h-full object-cover" src="/images/uploads/<%= user?.posts[0]?.image %>" alt="">
                 </div>
-                <h3 class="text-xl font-semibold mt-2">All pins</h3>
-                <h5 class="text-sm font-medium">28 pins</h5>
+                <a href="/show/posts" class="text-xl font-semibold mt-2">Your Uploaded Pins</a>
+                <h5 class="text-sm font-medium"><%= user.posts.length %></h5>
             </div>
             
         </div>
